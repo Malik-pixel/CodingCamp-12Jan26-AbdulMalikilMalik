@@ -15,4 +15,22 @@ function welcomeMessage() {
 }
 
 // Placeholder for form validation function
-function validateForm() { }
+//function validateForm() { }
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault(); // mencegah reload halaman
+
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let message = document.getElementById("message").value.trim();
+
+  if (name === "" || email === "" || message === "") {
+    alert("Semua field wajib diisi!");
+    return;
+  }
+
+  document.getElementById("result").innerText =
+    "Terima kasih " + name + ", pesan kamu sudah terkirim!";
+
+  // reset form
+  this.reset();
+});
